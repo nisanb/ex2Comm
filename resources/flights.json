@@ -1,0 +1,149 @@
+[
+	{
+		"id" : 1,
+		"departingTo" : "Miami, FL",
+		"time" : "12:30",
+		"seats" : 3,
+		"price" : 230
+	},
+	{
+		"id" : 2,
+		"departingTo" : "Boston, MA",
+		"time" : "12:30",
+		"seats" : 5,
+		"price" : 190
+	},
+	{
+		"id" : 3,
+		"departingTo" : "Los Angeles, CA",
+		"time" : "12:30",
+		"seats" : 6,
+		"price" : 400
+	},
+	{
+		"id" : 4,
+		"departingTo" : "New York City, NY",
+		"time" : "15:30",
+		"seats" : 1,
+		"price" : 250
+	},
+	{
+		"id" : 5,
+		"departingTo" : "Miami, FL",
+		"time" : "15:30",
+		"seats" : 5,
+		"price" : 250
+	},
+	{
+		"id" : 6,
+		"departingTo" : "Moscow",
+		"time" : "15:30",
+		"seats" : 12,
+		"price" : 220
+	},
+	{
+		"id" : 7,
+		"departingTo" : "Istanbul",
+		"time" : "15:30",
+		"seats" : 2,
+		"price" : 180
+	},
+	{
+		"id" : 8,
+		"departingTo" : "Miami, FL",
+		"time" : "17:00",
+		"seats" : 8,
+		"price" : 200
+	},
+	{
+		"id" : 9,
+		"departingTo" : "Boston, MA",
+		"time" : "17:00",
+		"seats" : 5,
+		"price" : 150
+	},
+	{
+		"id" : 10,
+		"departingTo" : "Paris",
+		"time" : "17:00",
+		"seats" : 3,
+		"price" : 220
+	},
+	{
+		"id" : 11,
+		"departingTo" : "London",
+		"time" : "17:00",
+		"seats" : 4,
+		"price" : 215
+	},
+	{
+		"id" : 12,
+		"departingTo" : "Toronto",
+		"time" : "17:00",
+		"seats" : 9,
+		"price" : 270
+	},
+	{
+		"id" : 13,
+		"departingTo" : "Zurich",
+		"time" : "17:00",
+		"seats" : 5,
+		"price" : 170
+	},
+	{
+		"id" : 14,
+		"departingTo" : "Miami, FL",
+		"time" : "19:30",
+		"seats" : 5,
+		"price" : 110
+	},
+	{
+		"id" : 15,
+		"departingTo" : "Detroit, MI",
+		"time" : "19:30",
+		"seats" : 11,
+		"price" : 120
+	},
+	{
+		"id" : 16,
+		"departingTo" : "Chicago, IL",
+		"time" : "19:30",
+		"seats" : 6,
+		"price" : 125
+	},
+	{
+		"id" : 17,
+		"departingTo" : "New York City, NY",
+		"time" : "19:30",
+		"seats" : 2,
+		"price" : 190
+	},
+	{
+		"id" : 18,
+		"departingTo" : "Rome",
+		"time" : "19:30",
+		"seats" : 4,
+		"price" : 200
+	},
+	{
+		"id" : 19,
+		"departingTo" : "Miami, FL",
+		"time" : "21:00",
+		"seats" : 17,
+		"price" : 45
+	},
+	{
+		"id" : 20,
+		"departingTo" : "London",
+		"time" : "21:00",
+		"seats" : 0,
+		"price" : 70
+	},
+	{
+		"id" : 21,
+		"departingTo" : "Tokyo",
+		"time" : "21:00",
+		"seats" : 0,
+		"price" : 320
+	}
+]
