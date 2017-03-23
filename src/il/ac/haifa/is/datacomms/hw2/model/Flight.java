@@ -40,7 +40,7 @@ public final class Flight {
 	 * @param id flight's id.
 	 */
 	protected Flight(int id) {
-		// TODO
+		this.id = id;
 	}
 	
 	//-------------------------------------------------------------------
@@ -56,7 +56,8 @@ public final class Flight {
 	 * @return true if succeeded, false otherwise.
 	 */
 	protected boolean bookTicketsFor(Team team) {
-		// TODO
+		//TODO
+		return true;
 	}
 	
 	/**

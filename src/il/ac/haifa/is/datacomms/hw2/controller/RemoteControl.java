@@ -1,5 +1,7 @@
 package il.ac.haifa.is.datacomms.hw2.controller;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import il.ac.haifa.is.datacomms.hw2.model.Airport;
@@ -10,7 +12,7 @@ import il.ac.haifa.is.datacomms.hw2.model.Team;
 /**
  *	Controller layer interface.
  */
-public interface RemoteControl {
+public interface RemoteControl extends Remote {
 	/**
 	 * @param from airport flights are departing from. i.e. 'LAX'
 	 * @param destination flight destination. i.e. 'Houston, TX'
@@ -18,7 +20,7 @@ public interface RemoteControl {
 	 * @return list of flights to given destination from given startTime. null if unrecognized airport.
 	 * @see Airport#getFlightsTo(String, LocalTime)
 	 */
-	public ArrayList<Flight> getFlightsTo(String destination, String from, LocalTime startTime);
+	public ArrayList<Flight> getFlightsTo(String destination, String from, LocalTime startTime) throws RemoteException;
 	
 	/**
 	 * @param teamId team's id.
@@ -26,7 +28,7 @@ public interface RemoteControl {
 	 * @return requested team. or null if doesn't exist or wrong password.
 	 * @see AmazingRace#getTeam(int, String)
 	 */
-	public Team getTeam(int teamId, String password);
+	public Team getTeam(int teamId, String password) throws RemoteException;
 	
 	/**
 	 * @param airport airport flight departs from.
@@ -35,12 +37,12 @@ public interface RemoteControl {
 	 * @return true if succeeded, false otherwise.
 	 * @see Airport#book(Flight, Team)
 	 */
-	public boolean bookFlight(String airport, Flight flight, Team team);
+	public boolean bookFlight(String airport, Flight flight, Team team) throws RemoteException;
 	
 	/**
 	 * @param airport airport flights are departing from.
 	 * @return Text with flights & teams who were able to book tickets for them.
 	 * @see Airport#getBookingReport()
 	 */
-	public String getBookingReport(String airport);
+	public String getBookingReport(String airport) throws RemoteException;
 }

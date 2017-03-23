@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.math.BigDecimal;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -13,14 +15,14 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public final class AmazingRaceImpl {
+public final class AmazingRaceImpl extends UnicastRemoteObject implements AmazingRace{
 	
 	//-------------------------------------------------------------------
 	//-----------------------------fields--------------------------------
 	//-------------------------------------------------------------------
 	
 	/**singleton instance.*/
-	private static AmazingRaceImpl instance;
+	private volatile static AmazingRaceImpl instance;
 	
 	/**teams participating in the race.*/
 	private ArrayList<Team> teams;
@@ -32,7 +34,7 @@ public final class AmazingRaceImpl {
 	/**
 	 * private c'tor for singelton use.
 	 */
-	private AmazingRaceImpl() {
+	private AmazingRaceImpl() throws RemoteException{
 		initTeams();
 	}
 	
@@ -40,8 +42,15 @@ public final class AmazingRaceImpl {
 	 * singleton getter.
 	 * @return only instance of this class.
 	 */
-	public static AmazingRaceImpl getInstance() {
-		// TODO
+	public synchronized static AmazingRaceImpl getInstance() {
+		if(instance==null)
+			try {
+				instance = new AmazingRaceImpl();
+			} catch (RemoteException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		return instance;
 	}
 	
 	//-------------------------------------------------------------------
@@ -87,6 +96,12 @@ public final class AmazingRaceImpl {
 	protected Team getTeam(Team team) {
 		final int index = teams.indexOf(team);
 		return (index == -1) ? null : teams.get(index);
+	}
+
+	@Override
+	public Team getTeam(int teamId, String password) throws RemoteException {
+		Team t = new Team(teamId);
+		return t;
 	}
 	
 	//-------------------------------------------------------------------

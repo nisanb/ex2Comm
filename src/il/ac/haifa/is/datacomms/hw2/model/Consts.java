@@ -7,8 +7,8 @@ public final class Consts {
 	private Consts() {}
 	
 	/**port RMI registry is listening on.*/
-	public static final int PORT = ;
+	public static final int PORT = 3000;
 	
 	/**localhost IP.*/
-	public static final String LOCALHOST = ;
+	public static final String LOCALHOST = "127.0.0.1";
 }

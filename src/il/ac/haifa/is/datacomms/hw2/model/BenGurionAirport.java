@@ -19,7 +19,7 @@ import org.json.simple.parser.ParseException;
 /**
  * Class representation of Ben Gurion Airport in Amazing Race's Application.
  */
-public final class BenGurionAirport {
+public final class BenGurionAirport extends UnicastRemoteObject implements Airport {
 	
 	//-------------------------------------------------------------------
 	//-----------------------------fields--------------------------------
@@ -38,7 +38,7 @@ public final class BenGurionAirport {
 	/**
 	 * private c'tor for singleton use.
 	 */
-	private BenGurionAirport() {
+	private BenGurionAirport() throws RemoteException {
 		initFlights();
 	}
 	
@@ -46,8 +46,11 @@ public final class BenGurionAirport {
 	 * singleton getter.
 	 * @return only instance of given class.
 	 */
-	public static BenGurionAirport getInstance() {
-		// TODO
+	public static BenGurionAirport getInstance() throws RemoteException{
+		if(instance==null)
+			instance = new BenGurionAirport();
+		
+		return instance;
 	}
 	
 	//-------------------------------------------------------------------
@@ -95,6 +98,18 @@ public final class BenGurionAirport {
 		
 		System.out.println(LocalTime.now() + 
 				" flights data fetched from file:\n\n" + flights + "\n"); // XXX
+	}
+
+	@Override
+	public ArrayList<Flight> getFlightsTo(String destination, LocalTime startTime) throws RemoteException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean book(Flight flight, Team team) throws RemoteException {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	//-------------------------------------------------------------------
