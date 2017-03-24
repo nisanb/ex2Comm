@@ -10,7 +10,7 @@ import java.util.HashMap;
 
 /**
  * Main class used to start control server up.
- */
+ *///
 public final class Main {
 	protected static File logFolder;
 	protected static PrintStream prntstrm;
