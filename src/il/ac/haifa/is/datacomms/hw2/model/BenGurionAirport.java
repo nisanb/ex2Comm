@@ -4,12 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.stream.Collectors;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -19,17 +21,22 @@ import org.json.simple.parser.ParseException;
 /**
  * Class representation of Ben Gurion Airport in Amazing Race's Application.
  */
-public final class BenGurionAirport extends UnicastRemoteObject implements Airport {
+public final class BenGurionAirport extends UnicastRemoteObject implements Airport, Serializable {
 	
 	//-------------------------------------------------------------------
 	//-----------------------------fields--------------------------------
 	//-------------------------------------------------------------------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**singleton instance.*/
 	private static BenGurionAirport instance;
 	
 	/**flights taking off from this airport.*/
-	private ArrayList<Flight> flights;
+	private volatile ArrayList<Flight> flights;
 	
 	//-------------------------------------------------------------------
 	//-------------------------constructors------------------------------
@@ -102,14 +109,20 @@ public final class BenGurionAirport extends UnicastRemoteObject implements Airpo
 
 	@Override
 	public ArrayList<Flight> getFlightsTo(String destination, LocalTime startTime) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		Main.Log("Aquiring flight list to "+destination+" from starting time: "+startTime);
+		ArrayList<Flight> toReturn = new ArrayList<Flight>();
+		for(Flight f : flights){
+			if(f.getDestination().equals(destination) && startTime.isBefore(f.getTime()))
+				toReturn.add(f);
+		}
+		Main.Log("Found "+toReturn.size()+" flights.");
+		return toReturn;
 	}
+	
 
 	@Override
 	public boolean book(Flight flight, Team team) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		return flight.bookTicketsFor(team);
 	}
 	
 	//-------------------------------------------------------------------

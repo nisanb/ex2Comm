@@ -1,13 +1,19 @@
 package il.ac.haifa.is.datacomms.hw2.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 
 /**
  * Class representation of a team in the amazing race.
  */
-public final class Team {
+public final class Team implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	//-------------------------------------------------------------------
 	//-----------------------------fields--------------------------------
 	//-------------------------------------------------------------------

@@ -15,35 +15,41 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-public final class AmazingRaceImpl extends UnicastRemoteObject implements AmazingRace{
-	
-	//-------------------------------------------------------------------
-	//-----------------------------fields--------------------------------
-	//-------------------------------------------------------------------
-	
-	/**singleton instance.*/
+public final class AmazingRaceImpl extends UnicastRemoteObject implements AmazingRace {
+
+	// -------------------------------------------------------------------
+	// -----------------------------fields--------------------------------
+	// -------------------------------------------------------------------
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/** singleton instance. */
 	private volatile static AmazingRaceImpl instance;
-	
-	/**teams participating in the race.*/
+
+	/** teams participating in the race. */
 	private ArrayList<Team> teams;
-	
-	//-------------------------------------------------------------------
-	//-------------------------constructors------------------------------
-	//-------------------------------------------------------------------
-	
+
+	// -------------------------------------------------------------------
+	// -------------------------constructors------------------------------
+	// -------------------------------------------------------------------
+
 	/**
 	 * private c'tor for singelton use.
 	 */
-	private AmazingRaceImpl() throws RemoteException{
+	private AmazingRaceImpl() throws RemoteException {
 		initTeams();
 	}
-	
+
 	/**
 	 * singleton getter.
+	 * 
 	 * @return only instance of this class.
 	 */
 	public synchronized static AmazingRaceImpl getInstance() {
-		if(instance==null)
+		if (instance == null)
 			try {
 				instance = new AmazingRaceImpl();
 			} catch (RemoteException e) {
@@ -52,15 +58,15 @@ public final class AmazingRaceImpl extends UnicastRemoteObject implements Amazin
 			}
 		return instance;
 	}
-	
-	//-------------------------------------------------------------------
-	//-------------------------functionality-----------------------------
-	//-------------------------------------------------------------------
-	
-	//-------------------------------------------------------------------
-	//----------------------------utility--------------------------------
-	//-------------------------------------------------------------------	
-	
+
+	// -------------------------------------------------------------------
+	// -------------------------functionality-----------------------------
+	// -------------------------------------------------------------------
+
+	// -------------------------------------------------------------------
+	// ----------------------------utility--------------------------------
+	// -------------------------------------------------------------------
+
 	/**
 	 * initializes teams.
 	 */
@@ -69,29 +75,28 @@ public final class AmazingRaceImpl extends UnicastRemoteObject implements Amazin
 		teams = new ArrayList<>();
 		try (InputStream is = getClass().getResourceAsStream("/teams.json");
 				BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
-			Iterator<JSONObject> outerIterator = 
-					((JSONArray) new JSONParser().parse(reader)).iterator();
+			Iterator<JSONObject> outerIterator = ((JSONArray) new JSONParser().parse(reader)).iterator();
 			while (outerIterator.hasNext()) {
 				JSONObject obj = (JSONObject) outerIterator.next();
-				teams.add(new Team(((Number) obj.get("id")).intValue())
-								.setPassword((String) obj.get("password"))
-								.setBudget(BigDecimal.valueOf(((Number) obj.get("budget")).doubleValue())));
+				teams.add(new Team(((Number) obj.get("id")).intValue()).setPassword((String) obj.get("password"))
+						.setBudget(BigDecimal.valueOf(((Number) obj.get("budget")).doubleValue())));
 			}
 		} catch (IOException | ParseException e) {
 			e.printStackTrace();
 		}
-		
-		System.out.println(LocalTime.now() + 
-				" teams data fetched from file:\n\n" + teams + "\n"); // XXX
+
+		System.out.println(LocalTime.now() + " teams data fetched from file:\n\n" + teams + "\n"); // XXX
 	}
-	
-	//-------------------------------------------------------------------
-	//----------------------------getters--------------------------------
-	//-------------------------------------------------------------------
-	
+
+	// -------------------------------------------------------------------
+	// ----------------------------getters--------------------------------
+	// -------------------------------------------------------------------
+
 	/**
-	 * @param team requested team's instance.
-	 * @return requested team's instance stored in teams list, or null if requested team does not exist in the list.
+	 * @param team
+	 *            requested team's instance.
+	 * @return requested team's instance stored in teams list, or null if
+	 *         requested team does not exist in the list.
 	 */
 	protected Team getTeam(Team team) {
 		final int index = teams.indexOf(team);
@@ -100,15 +105,19 @@ public final class AmazingRaceImpl extends UnicastRemoteObject implements Amazin
 
 	@Override
 	public Team getTeam(int teamId, String password) throws RemoteException {
-		Team t = new Team(teamId);
-		return t;
+		Team t = teams.get(teams.indexOf(new Team(teamId)));
+		if (t.getPassword().equals(password))
+			return t;
+		else
+			return null;
+
 	}
-	
-	//-------------------------------------------------------------------
-	//----------------------------setters--------------------------------
-	//-------------------------------------------------------------------
-	
-	//-------------------------------------------------------------------
-	//---------------------------overrides-------------------------------
-	//-------------------------------------------------------------------
+
+	// -------------------------------------------------------------------
+	// ----------------------------setters--------------------------------
+	// -------------------------------------------------------------------
+
+	// -------------------------------------------------------------------
+	// ---------------------------overrides-------------------------------
+	// -------------------------------------------------------------------
 }

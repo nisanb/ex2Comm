@@ -1,10 +1,16 @@
 package il.ac.haifa.is.datacomms.hw2.controller;
 
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
+import javax.swing.SpinnerNumberModel;
+
+import il.ac.haifa.is.datacomms.hw2.model.Airport;
 import il.ac.haifa.is.datacomms.hw2.model.AmazingRace;
 import il.ac.haifa.is.datacomms.hw2.model.AmazingRaceImpl;
 import il.ac.haifa.is.datacomms.hw2.model.Flight;
@@ -44,19 +50,49 @@ public final class RemoteControlImpl extends UnicastRemoteObject implements Remo
 
 	@Override
 	public ArrayList<Flight> getFlightsTo(String destination, String from, LocalTime startTime) throws RemoteException {
-		// TODO Auto-generated method stub
-		return null;
+		Main.Log("Getting flight list from "+from+" to "+destination+" from starting time: "+startTime);
+		Airport bgAirport = null;
+		//Aquire BGAirport Instance
+		try {
+			bgAirport = (Airport) Naming.lookup("//127.0.0.1:3000/BGAirport");
+			Main.Log("Found airport: "+bgAirport);
+			return bgAirport.getFlightsTo(destination, startTime);
+			
+		} catch (MalformedURLException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return new ArrayList<Flight>();
+
 	}
 
 	@Override
 	public Team getTeam(int teamId, String password) throws RemoteException {
-		return AmazingRaceImpl.getInstance().getTeam(teamId, password);
+		AmazingRace amzRace = null;
+		try {
+			amzRace = (AmazingRace)Naming.lookup("//127.0.0.1:3000/AmazingRace");
+		} catch (MalformedURLException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Main.Log("Log in attempt for team: "+teamId+" "+password);	
+		Team t = amzRace.getTeam(teamId, password);
+		if(t!=null) Main.Log("Team "+t+" found !");
+		else Main.Log("Team "+teamId+" not found!");
+		return t;
 	}
 
 	@Override
 	public boolean bookFlight(String airport, Flight flight, Team team) throws RemoteException {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			Airport bgAirport = (Airport)Naming.lookup("//127.0.0.1:3000/BGAirport");
+			bgAirport.book(flight, team);
+		} catch (MalformedURLException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return true;
 	}
 
 	@Override

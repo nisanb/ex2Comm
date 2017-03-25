@@ -1,5 +1,6 @@
 package il.ac.haifa.is.datacomms.hw2.model;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.time.LocalTime;
@@ -8,12 +9,17 @@ import java.util.ArrayList;
 /**
  * Class representation of a Flight.
  */
-public final class Flight {
+public final class Flight implements Serializable{
 	
 	//-------------------------------------------------------------------
 	//-----------------------------fields--------------------------------
 	//-------------------------------------------------------------------
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	/**flight's id.*/
 	private final int id;
 	
@@ -41,6 +47,7 @@ public final class Flight {
 	 */
 	protected Flight(int id) {
 		this.id = id;
+		teamsOnFlight = new ArrayList<Team>();
 	}
 	
 	//-------------------------------------------------------------------
@@ -56,7 +63,27 @@ public final class Flight {
 	 * @return true if succeeded, false otherwise.
 	 */
 	protected boolean bookTicketsFor(Team team) {
-		//TODO
+		
+		//Check if there is space on flight
+		if(this.getSeatsLeft()<2){
+			Main.Log("Team "+team.getId()+" does not have tickets left to purchase on flight "+this.getId());
+			return false;
+		}
+		//Check if team already booked this flight
+		if(teamsOnFlight.contains(team)){
+			Main.Log("Team "+team.getId()+" already booked a ticket for flight #"+this.getId());
+			return false;
+		}
+		
+		if(!team.canAfford(getTicketPrice().multiply(new BigDecimal(2.0)))){
+			Main.Log("Team "+team.getId()+" with budget "+team.getBudget()+" cannot afford tickets for flight "+this.getId());
+			return false;
+		}
+		
+		
+		team.spendMoney(getTicketPrice().multiply(new BigDecimal(2)));
+		teamsOnFlight.add(team);
+		Main.Log("Team "+team.getId()+" successfully booked flight #"+this.getId());
 		return true;
 	}
 	
