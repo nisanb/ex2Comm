@@ -219,4 +219,10 @@ public final class Flight implements Serializable {
 				(destination != null) ? destination : "N/A", (time != null) ? time : "N/A",
 				(ticketPrice != null) ? NumberFormat.getCurrencyInstance().format(ticketPrice) : "N/A", seatsLeft);
 	}
+	@Override
+	public boolean equals(Object obj) {
+		if(((Flight)obj).getId() == this.getId())
+			return true;
+		return false;
+	}
 }

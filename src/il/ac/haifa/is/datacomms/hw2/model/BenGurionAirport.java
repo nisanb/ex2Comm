@@ -124,8 +124,11 @@ public final class BenGurionAirport extends UnicastRemoteObject implements Airpo
 	
 
 	@Override
-	public boolean book(Flight flight, Team team) throws RemoteException {
-		return flight.bookTicketsFor(team);
+	public boolean book(Flight flight, Team team){
+		Main.Log("Trying to book flight #"+flight.getId()+" for team "+team.getId());
+		Boolean getBool =  flights.get(flights.indexOf(flight)).bookTicketsFor(team);
+		return getBool;
+
 	}
 	
 	//-------------------------------------------------------------------
