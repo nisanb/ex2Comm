@@ -69,7 +69,9 @@ public final class BenGurionAirport extends UnicastRemoteObject implements Airpo
 		System.out.println(LocalTime.now() + " get booking report"); // XXX
 		String out = "Booking Report:\n\n";
 		
-		// TODO
+		for(Flight f : flights)
+			out += f.getBookingReport();
+		
 		
 		return out;
 	}

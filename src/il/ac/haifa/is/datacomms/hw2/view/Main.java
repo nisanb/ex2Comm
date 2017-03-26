@@ -3,9 +3,15 @@ package il.ac.haifa.is.datacomms.hw2.view;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
+import java.net.MalformedURLException;
+import java.rmi.Naming;
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
 import java.text.SimpleDateFormat;
 import java.time.LocalTime;
 import java.util.Date;
+
+import il.ac.haifa.is.datacomms.hw2.controller.RemoteControl;
 
 /**
  * Main class used to start view server up.
@@ -18,7 +24,7 @@ public final class Main {
 	private Main() {
 	}
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, RemoteException, MalformedURLException, NotBoundException {
 		initiateLogs();
 		Main.Log("View Server is Up!\n");
 		threads = new Thread[10];
@@ -32,6 +38,12 @@ public final class Main {
 			if (th != null)
 				th.join();
 
+		//All teams finished booking the flights
+		RemoteControl rem = (RemoteControl) Naming.lookup("//127.0.0.1:3000/RemoteControl");
+		Main.Log(rem.getBookingReport(Consts.AIRPORT));
+
+		
+		
 	}
 
 	/**
@@ -53,7 +65,7 @@ public final class Main {
 			logFolder = new File("logs_" + dateTime);
 			logFolder.mkdir();
 			prntstrm = new PrintStream(new File(logFolder.getAbsolutePath() + "/MainLog_View.log"));
-			// System.setErr(prntstrm);
+			 System.setErr(prntstrm);
 			// System.setOut(prntstrm);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

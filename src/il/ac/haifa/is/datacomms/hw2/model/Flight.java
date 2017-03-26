@@ -93,7 +93,7 @@ public final class Flight implements Serializable{
 	protected String getBookingReport() {
 		String out = "";
 		
-		// TODO
+		
 		
 			out += this + "\thas been booked by the following teams (" + 
 											teamsOnFlight.size() + "):\n";
@@ -101,7 +101,7 @@ public final class Flight implements Serializable{
 				out += "\t" + team;
 				out += "\n";
 				
-		// TODO
+		
 				
 		return out;
 	}

@@ -51,7 +51,7 @@ public final class Main {
 			logFolder = new File("logs_" + dateTime);
 			logFolder.mkdir();
 			prntstrm = new PrintStream(new File(logFolder.getAbsolutePath() + "/MainLog_Controller.log"));
-			//System.setErr(prntstrm);
+			System.setErr(prntstrm);
           //  System.setOut(prntstrm);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
