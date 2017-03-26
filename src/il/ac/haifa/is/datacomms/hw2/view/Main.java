@@ -24,7 +24,7 @@ public final class Main {
 		threads = new Thread[10];
 
 		// Initiate teams
-		for (int i = 0; i < 2; i++) {
+		for (int i = 0; i < 11; i++) {
 			threads[i] = new Thread(new TeamClient());
 			threads[i].start();
 		}

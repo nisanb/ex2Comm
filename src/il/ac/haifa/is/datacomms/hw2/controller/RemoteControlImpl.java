@@ -55,7 +55,6 @@ public final class RemoteControlImpl extends UnicastRemoteObject implements Remo
 		//Aquire BGAirport Instance
 		try {
 			bgAirport = (Airport) Naming.lookup("//127.0.0.1:3000/BGAirport");
-			Main.Log("Found airport: "+bgAirport);
 			return bgAirport.getFlightsTo(destination, startTime);
 			
 		} catch (MalformedURLException | NotBoundException e) {
@@ -85,14 +84,18 @@ public final class RemoteControlImpl extends UnicastRemoteObject implements Remo
 	@Override
 	public boolean bookFlight(String airport, Flight flight, Team team) throws RemoteException {
 		try {
+			Main.Log("Attemping to book flight #"+flight.getId()+" to "+flight.getDestination()+" for team "+team.getId());
 			Airport bgAirport = (Airport)Naming.lookup("//127.0.0.1:3000/BGAirport");
-			bgAirport.book(flight, team);
+			if(bgAirport.book(flight, team)){
+				Main.Log("Authorized to book flight #"+flight.getId()+" to "+flight.getDestination()+" for team "+team.getId());
+				return true;
+			}
 		} catch (MalformedURLException | NotBoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return true;
+		Main.Log("Couldn't book tickets for team "+team.getId()+" for flight #"+flight.getId()+" to "+flight.getDestination());
+		return false;
 	}
 
 	@Override

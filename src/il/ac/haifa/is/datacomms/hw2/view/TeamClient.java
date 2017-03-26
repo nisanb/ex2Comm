@@ -56,7 +56,13 @@ public final class TeamClient implements Runnable {
 	@Override
 	public void run() {
 		Main.Log("Attemping to login - team " + this.teamId);
+		
+		
 		RemoteControl rem = null;
+		Boolean hold = false;
+		
+		
+		
 		try {
 			Main.Log("Team " + teamId + " receiving RemoteControl object reference");
 			rem = (RemoteControl) Naming.lookup("//127.0.0.1:3000/RemoteControl");
@@ -78,7 +84,7 @@ public final class TeamClient implements Runnable {
 			ArrayList<Flight> flightList = rem.getFlightsTo(Consts.DESTINATION, Consts.AIRPORT, lt);
 			Main.Log("Team " + teamId + " obtained " + flightList.size() + " flights possible.");
 
-			Boolean hold = false;
+			
 
 			for (Flight f : flightList) {
 				if (hold){
@@ -94,13 +100,16 @@ public final class TeamClient implements Runnable {
 				if (f.getTime().isBefore(LocalTime.of(15, 0)))
 					continue;
 
+				//Check if flight has seats left
 				if (f.getSeatsLeft() < 2) {
 					Main.Log("Flight #" + f.getId() + " has no available sits for team " + teamId);
 					continue;
 				}
 
+				//Attempt to book the flight at the remote server
 				if (rem.bookFlight(Consts.AIRPORT, f, (Team) team)) {
 					Main.Log("Successfully booked flight #" + f.getId() + " for team: " + teamId);
+					hold = false;
 					break;
 				}
 
@@ -113,6 +122,10 @@ public final class TeamClient implements Runnable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		if(hold)
+			Main.Log("Team "+teamId+" could not book a flight at all!");
+		
 
 	}
 
