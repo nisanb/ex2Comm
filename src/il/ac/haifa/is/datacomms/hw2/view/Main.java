@@ -55,6 +55,7 @@ public final class Main {
 			e.printStackTrace();
 		}
 		try {
+			//Attempt to book the flight
 			Main.Log(rem.getBookingReport(Consts.AIRPORT));
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
