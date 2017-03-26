@@ -24,23 +24,42 @@ public final class Main {
 	private Main() {
 	}
 
-	public static void main(String[] args) throws InterruptedException, RemoteException, MalformedURLException, NotBoundException {
+	public static void main(String[] args)  {
 		initiateLogs();
 		Main.Log("View Server is Up!\n");
-		threads = new Thread[10];
+		
+		threads = new Thread[11];
 
-		// Initiate teams
+		//Initiate teams threads
 		for (int i = 0; i < 11; i++) {
 			threads[i] = new Thread(new TeamClient());
 			threads[i].start();
 		}
+		
+		//Join threads to main
 		for (Thread th : threads)
 			if (th != null)
-				th.join();
+				try {
+					th.join();
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 
 		//All teams finished booking the flights
-		RemoteControl rem = (RemoteControl) Naming.lookup("//127.0.0.1:3000/RemoteControl");
-		Main.Log(rem.getBookingReport(Consts.AIRPORT));
+		RemoteControl rem = null;
+		try {
+			rem = (RemoteControl) Naming.lookup("//127.0.0.1:3000/RemoteControl");
+		} catch (MalformedURLException | RemoteException | NotBoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			Main.Log(rem.getBookingReport(Consts.AIRPORT));
+		} catch (RemoteException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 		
 		

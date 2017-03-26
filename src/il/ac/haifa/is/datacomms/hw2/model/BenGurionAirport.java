@@ -33,7 +33,7 @@ public final class BenGurionAirport extends UnicastRemoteObject implements Airpo
 	private static final long serialVersionUID = 1L;
 
 	/**singleton instance.*/
-	private static BenGurionAirport instance;
+	private volatile static BenGurionAirport instance;
 	
 	/**flights taking off from this airport.*/
 	private volatile ArrayList<Flight> flights;
@@ -66,7 +66,8 @@ public final class BenGurionAirport extends UnicastRemoteObject implements Airpo
 	
 	@Override
 	public String getBookingReport() {
-		System.out.println(LocalTime.now() + " get booking report"); // XXX
+		
+		Main.Log(LocalTime.now() + " get booking report"); // XXX
 		String out = "Booking Report:\n\n";
 		
 		for(Flight f : flights)

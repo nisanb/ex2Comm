@@ -112,13 +112,13 @@ public final class RemoteControlImpl extends UnicastRemoteObject implements Remo
 
 	@Override
 	public String getBookingReport(String airport) throws RemoteException {
-
+		Main.Log("Get Booking Log Requested");
 		try {
-			return ((BenGurionAirport) Naming.lookup("//127.0.0.1:3000/BGAirport")).getBookingReport();
+			return ((Airport) Naming.lookup("//127.0.0.1:3000/BGAirport")).getBookingReport();
 		} catch (MalformedURLException | NotBoundException e) {
 			e.printStackTrace();
 		}
-
+		Main.Log("Returning NULL");
 		return null;
 	}
 
