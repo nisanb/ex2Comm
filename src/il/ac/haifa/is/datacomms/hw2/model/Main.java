@@ -25,18 +25,15 @@ public final class Main {
 		initiateLogs();
 		
 		
-		System.out.println(LocalTime.now() + " model server is Up!\n"); // XXX
+		Main.Log(LocalTime.now() + " model server is Up!\n"); // XXX
 		
-		
-		Remote rem = AmazingRaceImpl.getInstance();
 		try {
 			Main.Log("Binding AmazingRace Instance to registry");
-			Naming.rebind("//127.0.0.1:3000/AmazingRace", rem);
+			Naming.rebind("//"+Consts.LOCALHOST+":"+Consts.PORT+"/AmazingRace", AmazingRaceImpl.getInstance());
 			Main.Log("Biding BGAirport instance to registry");
-			Naming.rebind("//127.0.0.1:3000/BGAirport", BenGurionAirport.getInstance());
+			Naming.rebind("//"+Consts.LOCALHOST+":"+Consts.PORT+"/BGAirport", BenGurionAirport.getInstance());
 			Main.Log("Binding success.");
 		} catch (RemoteException | MalformedURLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		

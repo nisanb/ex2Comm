@@ -67,18 +67,19 @@ public final class TeamClient implements Runnable {
 			// Log into the system
 			Main.Log("Team " + teamId + " attemps to log in");
 			Object team = rem.getTeam(teamId, Consts.DEFAULT_PASSWORD);
-			if (team != null)
-				Main.Log("Team " + teamId + " logged in successfully!");
-			else {
+			
+			// Try to log in
+			if (team == null) {
 				Main.Log("Login unsuccessfull. Killing Thread for team " + teamId + "..");
 				return;
 			}
-
+			Main.Log("Team " + teamId + " logged in successfully!");
+			
+			
 			// Obtain flight list to airport, destination & time window
-			LocalTime lt = LocalTime.of(15, 0);
 			Main.Log("Team " + teamId + " obtaining flight list for: " + Consts.AIRPORT + " to " + Consts.DESTINATION
-					+ " from " + lt);
-			ArrayList<Flight> flightList = rem.getFlightsTo(Consts.DESTINATION, Consts.AIRPORT, lt);
+					+ " from " + Consts.NOW);
+			ArrayList<Flight> flightList = rem.getFlightsTo(Consts.DESTINATION, Consts.AIRPORT, Consts.NOW);
 			Main.Log("Team " + teamId + " obtained " + flightList.size() + " flights possible.");
 
 			for (Flight f : flightList) {
@@ -108,7 +109,7 @@ public final class TeamClient implements Runnable {
 						hold = false;
 						break;
 					}
-					
+
 				}
 			}
 

@@ -27,7 +27,7 @@ public final class Main {
 	public static void main(String[] args)  {
 		initiateLogs();
 		Main.Log("View Server is Up!\n");
-		
+
 		threads = new Thread[11];
 
 		//Initiate teams threads
@@ -42,23 +42,26 @@ public final class Main {
 				try {
 					th.join();
 				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
+		//Booking ended for all teams
+		
+		
+		
+		
+		
 		//All teams finished booking the flights
 		RemoteControl rem = null;
 		try {
 			rem = (RemoteControl) Naming.lookup("//127.0.0.1:3000/RemoteControl");
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			//Attempt to book the flight
+			//Get the booking report
 			Main.Log(rem.getBookingReport(Consts.AIRPORT));
 		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
