@@ -62,7 +62,7 @@ public final class TeamClient implements Runnable {
 
 		try {
 			Main.Log("Team " + teamId + " receiving RemoteControl object reference");
-			rem = (RemoteControl) Naming.lookup("//127.0.0.1:3000/RemoteControl");
+			rem = (RemoteControl) Naming.lookup("//"+Main.IP+":"+Main.PORT+"/RemoteControl");
 
 			// Log into the system
 			Main.Log("Team " + teamId + " attemps to log in");

@@ -20,7 +20,9 @@ public final class Main {
 	protected static File logFolder;
 	protected static PrintStream prntstrm;
 	protected static Thread threads[];
-
+	protected static final String IP = il.ac.haifa.is.datacomms.hw2.model.Consts.LOCALHOST;
+	protected static final int PORT = il.ac.haifa.is.datacomms.hw2.model.Consts.PORT;
+	
 	private Main() {
 	}
 
@@ -54,7 +56,7 @@ public final class Main {
 		//All teams finished booking the flights
 		RemoteControl rem = null;
 		try {
-			rem = (RemoteControl) Naming.lookup("//127.0.0.1:3000/RemoteControl");
+			rem = (RemoteControl) Naming.lookup("//"+IP+":"+PORT+"/RemoteControl");
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			e.printStackTrace();
 		}

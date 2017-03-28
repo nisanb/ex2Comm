@@ -18,6 +18,10 @@ public final class Main {
 	protected static File logFolder;
 	protected static PrintStream prntstrm;
 
+	protected static final String IP = il.ac.haifa.is.datacomms.hw2.model.Consts.LOCALHOST;
+	protected static final int PORT = il.ac.haifa.is.datacomms.hw2.model.Consts.PORT;
+	
+	
 	private Main() {
 	}
 
@@ -26,7 +30,7 @@ public final class Main {
 		initiateLogs();
 		Main.Log("Starting Controller Server . . .");
 		Main.Log("Binding RemoteControl");
-		Naming.rebind("//127.0.0.1:3000/RemoteControl", RemoteControlImpl.getInstance());
+		Naming.rebind("//"+IP+":"+PORT+"/RemoteControl", RemoteControlImpl.getInstance());
 		Main.Log("Bind successfull");
 		Main.Log("Controller Server is Up!\n");
 

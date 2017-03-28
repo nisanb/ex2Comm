@@ -28,6 +28,7 @@ public final class RemoteControlImpl extends UnicastRemoteObject implements Remo
 
 	/** singleton instance. */
 	private static volatile RemoteControlImpl instance;
+	
 
 	// -------------------------------------------------------------------
 	// -------------------------constructors------------------------------
@@ -57,7 +58,7 @@ public final class RemoteControlImpl extends UnicastRemoteObject implements Remo
 		Airport bgAirport = null;
 		// Aquire BGAirport Instance
 		try {
-			bgAirport = (Airport) Naming.lookup("//127.0.0.1:3000/BGAirport");
+			bgAirport = (Airport) Naming.lookup("//"+Main.IP+":"+Main.PORT+"/BGAirport");
 			return bgAirport.getFlightsTo(destination, startTime);
 
 		} catch (MalformedURLException | NotBoundException e) {
