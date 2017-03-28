@@ -1,0 +1,121 @@
+14:35:55.359 - 14:35:55.351 model server is Up!
+
+14:35:55.360 - Binding AmazingRace Instance to registry
+14:35:55.584 - Biding BGAirport instance to registry
+14:35:55.588 - Creating flight ID: 1
+14:35:55.588 - Creating flight ID: 2
+14:35:55.589 - Creating flight ID: 3
+14:35:55.589 - Creating flight ID: 4
+14:35:55.589 - Creating flight ID: 5
+14:35:55.589 - Creating flight ID: 6
+14:35:55.589 - Creating flight ID: 7
+14:35:55.590 - Creating flight ID: 8
+14:35:55.590 - Creating flight ID: 9
+14:35:55.590 - Creating flight ID: 10
+14:35:55.590 - Creating flight ID: 11
+14:35:55.591 - Creating flight ID: 12
+14:35:55.592 - Creating flight ID: 13
+14:35:55.592 - Creating flight ID: 14
+14:35:55.593 - Creating flight ID: 15
+14:35:55.595 - Creating flight ID: 16
+14:35:55.596 - Creating flight ID: 17
+14:35:55.597 - Creating flight ID: 18
+14:35:55.597 - Creating flight ID: 19
+14:35:55.598 - Creating flight ID: 20
+14:35:55.599 - Creating flight ID: 21
+14:35:55.611 - Binding success.
+14:35:59.196 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.196 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.197 - Found 4 flights.
+14:35:59.198 - Found 4 flights.
+14:35:59.200 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.202 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.202 - Found 4 flights.
+14:35:59.205 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.206 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.208 - Found 4 flights.
+14:35:59.211 - Found 4 flights.
+14:35:59.213 - Found 4 flights.
+14:35:59.214 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.217 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.219 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.220 - Aquiring flight list to Miami, FL from starting time: 15:00
+14:35:59.222 - Found 4 flights.
+14:35:59.225 - Trying to book flight #5 for team 8
+14:35:59.227 - Spending $500.0 for team 8
+14:35:59.228 - Found 4 flights.
+14:35:59.230 - Found 4 flights.
+14:35:59.232 - Found 4 flights.
+14:35:59.237 - Adding team 8 to flight #5 book. new size: 1
+14:35:59.244 - Team 8 successfully booked flight #5
+14:35:59.250 - Trying to book flight #5 for team 9
+14:35:59.250 - Team 9 with budget 398.0 cannot afford tickets for flight 5
+14:35:59.254 - Trying to book flight #5 for team 6
+14:35:59.255 - Team 6 with budget 378.1 cannot afford tickets for flight 5
+14:35:59.260 - Trying to book flight #5 for team 5
+14:35:59.260 - Team 5 with budget 13.0 cannot afford tickets for flight 5
+14:35:59.263 - Trying to book flight #5 for team 10
+14:35:59.264 - Spending $500.0 for team 10
+14:35:59.265 - Adding team 10 to flight #5 book. new size: 2
+14:35:59.266 - Team 10 successfully booked flight #5
+14:35:59.272 - Trying to book flight #5 for team 4
+14:35:59.273 - Team 4 does not have tickets left to purchase on flight 5
+14:35:59.277 - Trying to book flight #5 for team 2
+14:35:59.278 - Team 2 does not have tickets left to purchase on flight 5
+14:35:59.282 - Trying to book flight #5 for team 1
+14:35:59.282 - Team 1 does not have tickets left to purchase on flight 5
+14:35:59.288 - Trying to book flight #5 for team 0
+14:35:59.288 - Team 0 does not have tickets left to purchase on flight 5
+14:35:59.292 - Trying to book flight #5 for team 3
+14:35:59.292 - Team 3 does not have tickets left to purchase on flight 5
+14:36:02.256 - Trying to book flight #8 for team 9
+14:36:02.257 - Team 9 with budget 398.0 cannot afford tickets for flight 8
+14:36:02.262 - Trying to book flight #8 for team 6
+14:36:02.262 - Team 6 with budget 378.1 cannot afford tickets for flight 8
+14:36:02.268 - Trying to book flight #8 for team 5
+14:36:02.269 - Team 5 with budget 13.0 cannot afford tickets for flight 8
+14:36:02.278 - Trying to book flight #8 for team 4
+14:36:02.279 - Team 4 with budget 330.0 cannot afford tickets for flight 8
+14:36:02.286 - Trying to book flight #8 for team 2
+14:36:02.287 - Spending $400.0 for team 2
+14:36:02.288 - Adding team 2 to flight #8 book. new size: 1
+14:36:02.289 - Team 2 successfully booked flight #8
+14:36:02.295 - Trying to book flight #8 for team 1
+14:36:02.296 - Team 1 with budget 372.0 cannot afford tickets for flight 8
+14:36:02.300 - Trying to book flight #8 for team 3
+14:36:02.301 - Team 3 with budget 256.5 cannot afford tickets for flight 8
+14:36:02.308 - Trying to book flight #8 for team 0
+14:36:02.308 - Spending $400.0 for team 0
+14:36:02.310 - Adding team 0 to flight #8 book. new size: 2
+14:36:02.311 - Team 0 successfully booked flight #8
+14:36:05.263 - Trying to book flight #14 for team 9
+14:36:05.263 - Spending $220.0 for team 9
+14:36:05.264 - Adding team 9 to flight #14 book. new size: 1
+14:36:05.265 - Team 9 successfully booked flight #14
+14:36:05.269 - Trying to book flight #14 for team 6
+14:36:05.270 - Spending $220.0 for team 6
+14:36:05.270 - Adding team 6 to flight #14 book. new size: 2
+14:36:05.271 - Team 6 successfully booked flight #14
+14:36:05.277 - Trying to book flight #14 for team 5
+14:36:05.277 - Team 5 does not have tickets left to purchase on flight 14
+14:36:05.284 - Trying to book flight #14 for team 4
+14:36:05.285 - Team 4 does not have tickets left to purchase on flight 14
+14:36:05.301 - Trying to book flight #14 for team 1
+14:36:05.302 - Team 1 does not have tickets left to purchase on flight 14
+14:36:05.306 - Trying to book flight #14 for team 3
+14:36:05.306 - Team 3 does not have tickets left to purchase on flight 14
+14:36:08.283 - Trying to book flight #19 for team 5
+14:36:08.283 - Team 5 with budget 13.0 cannot afford tickets for flight 19
+14:36:08.292 - Trying to book flight #19 for team 4
+14:36:08.293 - Spending $90.0 for team 4
+14:36:08.293 - Adding team 4 to flight #19 book. new size: 1
+14:36:08.295 - Team 4 successfully booked flight #19
+14:36:08.308 - Trying to book flight #19 for team 1
+14:36:08.308 - Spending $90.0 for team 1
+14:36:08.310 - Adding team 1 to flight #19 book. new size: 2
+14:36:08.313 - Team 1 successfully booked flight #19
+14:36:08.317 - Trying to book flight #19 for team 3
+14:36:08.317 - Spending $90.0 for team 3
+14:36:08.318 - Adding team 3 to flight #19 book. new size: 3
+14:36:08.320 - Team 3 successfully booked flight #19
+14:36:08.326 - 14:36:08.326 get booking report

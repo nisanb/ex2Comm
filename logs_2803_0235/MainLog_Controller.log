@@ -1,0 +1,104 @@
+14:35:57.082 - Starting Controller Server . . .
+14:35:57.090 - Binding RemoteControl
+14:35:57.219 - Bind successfull
+14:35:57.219 - Controller Server is Up!
+
+14:35:59.161 - Log in attempt for team: 2 123
+14:35:59.163 - Log in attempt for team: 0 123
+14:35:59.164 - Log in attempt for team: 4 123
+14:35:59.164 - Log in attempt for team: 9 123
+14:35:59.165 - Log in attempt for team: 5 123
+14:35:59.165 - Log in attempt for team: 10 123
+14:35:59.165 - Log in attempt for team: 1 123
+14:35:59.165 - Log in attempt for team: 3 123
+14:35:59.166 - Log in attempt for team: 7 123
+14:35:59.166 - Log in attempt for team: 6 123
+14:35:59.168 - Log in attempt for team: 8 123
+14:35:59.170 - Team 7 not found!
+14:35:59.176 - Team Team [ id=2, password=123, budget=$470.25 ]
+ found !
+14:35:59.176 - Team Team [ id=5, password=123, budget=$13.00 ]
+ found !
+14:35:59.176 - Team Team [ id=10, password=123, budget=$620.00 ]
+ found !
+14:35:59.176 - Team Team [ id=9, password=123, budget=$398.00 ]
+ found !
+14:35:59.176 - Team Team [ id=4, password=123, budget=$330.00 ]
+ found !
+14:35:59.176 - Team Team [ id=6, password=123, budget=$378.10 ]
+ found !
+14:35:59.176 - Team Team [ id=0, password=123, budget=$513.00 ]
+ found !
+14:35:59.176 - Team Team [ id=1, password=123, budget=$372.00 ]
+ found !
+14:35:59.176 - Team Team [ id=8, password=123, budget=$573.00 ]
+ found !
+14:35:59.176 - Team Team [ id=3, password=123, budget=$256.50 ]
+ found !
+14:35:59.189 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.189 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.197 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.199 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.200 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.202 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.207 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.210 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.210 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.211 - Getting flight list from Ben Gurion to Miami, FL from starting time: 15:00
+14:35:59.218 - Attemping to book flight #5 to Miami, FL for team 8
+14:35:59.244 - Authorized to book flight #5 to Miami, FL for team 8
+14:35:59.245 - Attemping to book flight #5 to Miami, FL for team 9
+14:35:59.251 - Couldn't book tickets for team 9 for flight #5 to Miami, FL
+14:35:59.251 - Attemping to book flight #5 to Miami, FL for team 6
+14:35:59.256 - Couldn't book tickets for team 6 for flight #5 to Miami, FL
+14:35:59.256 - Attemping to book flight #5 to Miami, FL for team 5
+14:35:59.261 - Couldn't book tickets for team 5 for flight #5 to Miami, FL
+14:35:59.261 - Attemping to book flight #5 to Miami, FL for team 10
+14:35:59.267 - Authorized to book flight #5 to Miami, FL for team 10
+14:35:59.268 - Attemping to book flight #5 to Miami, FL for team 4
+14:35:59.273 - Couldn't book tickets for team 4 for flight #5 to Miami, FL
+14:35:59.273 - Attemping to book flight #5 to Miami, FL for team 2
+14:35:59.278 - Couldn't book tickets for team 2 for flight #5 to Miami, FL
+14:35:59.278 - Attemping to book flight #5 to Miami, FL for team 1
+14:35:59.283 - Couldn't book tickets for team 1 for flight #5 to Miami, FL
+14:35:59.284 - Attemping to book flight #5 to Miami, FL for team 0
+14:35:59.289 - Couldn't book tickets for team 0 for flight #5 to Miami, FL
+14:35:59.289 - Attemping to book flight #5 to Miami, FL for team 3
+14:35:59.293 - Couldn't book tickets for team 3 for flight #5 to Miami, FL
+14:36:02.254 - Attemping to book flight #8 to Miami, FL for team 9
+14:36:02.258 - Couldn't book tickets for team 9 for flight #8 to Miami, FL
+14:36:02.258 - Attemping to book flight #8 to Miami, FL for team 6
+14:36:02.262 - Couldn't book tickets for team 6 for flight #8 to Miami, FL
+14:36:02.263 - Attemping to book flight #8 to Miami, FL for team 5
+14:36:02.269 - Couldn't book tickets for team 5 for flight #8 to Miami, FL
+14:36:02.276 - Attemping to book flight #8 to Miami, FL for team 4
+14:36:02.280 - Couldn't book tickets for team 4 for flight #8 to Miami, FL
+14:36:02.281 - Attemping to book flight #8 to Miami, FL for team 2
+14:36:02.290 - Authorized to book flight #8 to Miami, FL for team 2
+14:36:02.291 - Attemping to book flight #8 to Miami, FL for team 1
+14:36:02.297 - Couldn't book tickets for team 1 for flight #8 to Miami, FL
+14:36:02.297 - Attemping to book flight #8 to Miami, FL for team 3
+14:36:02.302 - Couldn't book tickets for team 3 for flight #8 to Miami, FL
+14:36:02.302 - Attemping to book flight #8 to Miami, FL for team 0
+14:36:02.312 - Authorized to book flight #8 to Miami, FL for team 0
+14:36:05.260 - Attemping to book flight #14 to Miami, FL for team 9
+14:36:05.266 - Authorized to book flight #14 to Miami, FL for team 9
+14:36:05.266 - Attemping to book flight #14 to Miami, FL for team 6
+14:36:05.274 - Authorized to book flight #14 to Miami, FL for team 6
+14:36:05.274 - Attemping to book flight #14 to Miami, FL for team 5
+14:36:05.278 - Couldn't book tickets for team 5 for flight #14 to Miami, FL
+14:36:05.282 - Attemping to book flight #14 to Miami, FL for team 4
+14:36:05.287 - Couldn't book tickets for team 4 for flight #14 to Miami, FL
+14:36:05.299 - Attemping to book flight #14 to Miami, FL for team 1
+14:36:05.303 - Couldn't book tickets for team 1 for flight #14 to Miami, FL
+14:36:05.304 - Attemping to book flight #14 to Miami, FL for team 3
+14:36:05.308 - Couldn't book tickets for team 3 for flight #14 to Miami, FL
+14:36:08.280 - Attemping to book flight #19 to Miami, FL for team 5
+14:36:08.285 - Couldn't book tickets for team 5 for flight #19 to Miami, FL
+14:36:08.288 - Attemping to book flight #19 to Miami, FL for team 4
+14:36:08.296 - Authorized to book flight #19 to Miami, FL for team 4
+14:36:08.305 - Attemping to book flight #19 to Miami, FL for team 1
+14:36:08.314 - Authorized to book flight #19 to Miami, FL for team 1
+14:36:08.314 - Attemping to book flight #19 to Miami, FL for team 3
+14:36:08.321 - Authorized to book flight #19 to Miami, FL for team 3
+14:36:08.324 - Get Booking Log Requested

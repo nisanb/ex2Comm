@@ -1,0 +1,170 @@
+14:35:59.011 - View Server is Up!
+
+14:35:59.019 - Connecting to server: 127.0.0.1:3000
+14:35:59.021 - Attemping to login - team 0
+14:35:59.021 - Attemping to login - team 2
+14:35:59.021 - Attemping to login - team 1
+14:35:59.021 - Attemping to login - team 5
+14:35:59.021 - Attemping to login - team 4
+14:35:59.021 - Attemping to login - team 3
+14:35:59.021 - Attemping to login - team 10
+14:35:59.021 - Team 5 receiving RemoteControl object reference
+14:35:59.021 - Attemping to login - team 8
+14:35:59.021 - Team 1 receiving RemoteControl object reference
+14:35:59.021 - Attemping to login - team 7
+14:35:59.021 - Team 2 receiving RemoteControl object reference
+14:35:59.021 - Team 0 receiving RemoteControl object reference
+14:35:59.022 - Team 7 receiving RemoteControl object reference
+14:35:59.022 - Team 3 receiving RemoteControl object reference
+14:35:59.021 - Team 10 receiving RemoteControl object reference
+14:35:59.021 - Team 4 receiving RemoteControl object reference
+14:35:59.021 - Attemping to login - team 6
+14:35:59.021 - Attemping to login - team 9
+14:35:59.022 - Team 8 receiving RemoteControl object reference
+14:35:59.022 - Team 6 receiving RemoteControl object reference
+14:35:59.023 - Team 9 receiving RemoteControl object reference
+14:35:59.152 - Team 4 attemps to log in
+14:35:59.152 - Team 9 attemps to log in
+14:35:59.152 - Team 7 attemps to log in
+14:35:59.152 - Team 5 attemps to log in
+14:35:59.152 - Team 0 attemps to log in
+14:35:59.152 - Team 1 attemps to log in
+14:35:59.152 - Team 6 attemps to log in
+14:35:59.152 - Team 3 attemps to log in
+14:35:59.152 - Team 8 attemps to log in
+14:35:59.152 - Team 2 attemps to log in
+14:35:59.156 - Team 10 attemps to log in
+14:35:59.172 - Login unsuccessfull. Killing Thread for team 7..
+14:35:59.182 - Team 0 logged in successfully!
+14:35:59.182 - Team 9 logged in successfully!
+14:35:59.182 - Team 8 logged in successfully!
+14:35:59.182 - Team 3 logged in successfully!
+14:35:59.182 - Team 2 logged in successfully!
+14:35:59.182 - Team 1 logged in successfully!
+14:35:59.182 - Team 10 logged in successfully!
+14:35:59.182 - Team 4 logged in successfully!
+14:35:59.182 - Team 5 logged in successfully!
+14:35:59.183 - Team 0 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.184 - Team 8 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.185 - Team 9 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.186 - Team 6 logged in successfully!
+14:35:59.188 - Team 5 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.189 - Team 4 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.190 - Team 2 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.191 - Team 10 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.194 - Team 1 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.195 - Team 3 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.205 - Team 6 obtaining flight list for: Ben Gurion to Miami, FL from 15:00
+14:35:59.213 - Team 8 obtained 4 flights possible.
+14:35:59.214 - Team 0 obtained 4 flights possible.
+14:35:59.220 - Team 1 obtained 4 flights possible.
+14:35:59.228 - Team 2 obtained 4 flights possible.
+14:35:59.229 - Team 4 obtained 4 flights possible.
+14:35:59.229 - Team 10 obtained 4 flights possible.
+14:35:59.231 - Team 5 obtained 4 flights possible.
+14:35:59.237 - Team 6 obtained 4 flights possible.
+14:35:59.239 - Team 9 obtained 4 flights possible.
+14:35:59.244 - Team 3 obtained 4 flights possible.
+14:35:59.246 - Successfully booked flight #5 for team: 8
+14:35:59.252 - Team 9 is Waiting 3 seconds before attempting to book another flight..
+14:35:59.256 - Team 6 is Waiting 3 seconds before attempting to book another flight..
+14:35:59.261 - Team 5 is Waiting 3 seconds before attempting to book another flight..
+14:35:59.268 - Successfully booked flight #5 for team: 10
+14:35:59.274 - Team 4 is Waiting 3 seconds before attempting to book another flight..
+14:35:59.279 - Team 2 is Waiting 3 seconds before attempting to book another flight..
+14:35:59.284 - Team 1 is Waiting 3 seconds before attempting to book another flight..
+14:35:59.289 - Team 0 is Waiting 3 seconds before attempting to book another flight..
+14:35:59.293 - Team 3 is Waiting 3 seconds before attempting to book another flight..
+14:36:02.258 - Team 9 is Waiting 3 seconds before attempting to book another flight..
+14:36:02.263 - Team 6 is Waiting 3 seconds before attempting to book another flight..
+14:36:02.270 - Team 5 is Waiting 3 seconds before attempting to book another flight..
+14:36:02.281 - Team 4 is Waiting 3 seconds before attempting to book another flight..
+14:36:02.291 - Successfully booked flight #8 for team: 2
+14:36:02.298 - Team 1 is Waiting 3 seconds before attempting to book another flight..
+14:36:02.303 - Team 3 is Waiting 3 seconds before attempting to book another flight..
+14:36:02.312 - Successfully booked flight #8 for team: 0
+14:36:05.267 - Successfully booked flight #14 for team: 9
+14:36:05.274 - Successfully booked flight #14 for team: 6
+14:36:05.278 - Team 5 is Waiting 3 seconds before attempting to book another flight..
+14:36:05.287 - Team 4 is Waiting 3 seconds before attempting to book another flight..
+14:36:05.303 - Team 1 is Waiting 3 seconds before attempting to book another flight..
+14:36:05.310 - Team 3 is Waiting 3 seconds before attempting to book another flight..
+14:36:08.285 - Team 5 could not book a flight at all!
+14:36:08.297 - Successfully booked flight #19 for team: 4
+14:36:08.314 - Successfully booked flight #19 for team: 1
+14:36:08.322 - Successfully booked flight #19 for team: 3
+14:36:08.330 - Booking Report:
+
+Flight [ id=1, destination='Miami, FL', time=12:30, ticketPrice=$230.00, seatsLeft=3 ]
+	has been booked by the following teams (0):
+
+Flight [ id=2, destination='Boston, MA', time=12:30, ticketPrice=$190.00, seatsLeft=5 ]
+	has been booked by the following teams (0):
+
+Flight [ id=3, destination='Los Angeles, CA', time=12:30, ticketPrice=$400.00, seatsLeft=6 ]
+	has been booked by the following teams (0):
+
+Flight [ id=4, destination='New York City, NY', time=15:30, ticketPrice=$250.00, seatsLeft=1 ]
+	has been booked by the following teams (0):
+
+Flight [ id=5, destination='Miami, FL', time=15:30, ticketPrice=$250.00, seatsLeft=1 ]
+	has been booked by the following teams (2):
+	Team [ id=8, password=123, budget=$73.00 ]
+	Team [ id=10, password=123, budget=$120.00 ]
+
+Flight [ id=6, destination='Moscow', time=15:30, ticketPrice=$220.00, seatsLeft=12 ]
+	has been booked by the following teams (0):
+
+Flight [ id=7, destination='Istanbul', time=15:30, ticketPrice=$180.00, seatsLeft=2 ]
+	has been booked by the following teams (0):
+
+Flight [ id=8, destination='Miami, FL', time=17:00, ticketPrice=$200.00, seatsLeft=4 ]
+	has been booked by the following teams (2):
+	Team [ id=2, password=123, budget=$70.25 ]
+	Team [ id=0, password=123, budget=$113.00 ]
+
+Flight [ id=9, destination='Boston, MA', time=17:00, ticketPrice=$150.00, seatsLeft=5 ]
+	has been booked by the following teams (0):
+
+Flight [ id=10, destination='Paris', time=17:00, ticketPrice=$220.00, seatsLeft=3 ]
+	has been booked by the following teams (0):
+
+Flight [ id=11, destination='London', time=17:00, ticketPrice=$215.00, seatsLeft=4 ]
+	has been booked by the following teams (0):
+
+Flight [ id=12, destination='Toronto', time=17:00, ticketPrice=$270.00, seatsLeft=9 ]
+	has been booked by the following teams (0):
+
+Flight [ id=13, destination='Zurich', time=17:00, ticketPrice=$170.00, seatsLeft=5 ]
+	has been booked by the following teams (0):
+
+Flight [ id=14, destination='Miami, FL', time=19:30, ticketPrice=$110.00, seatsLeft=1 ]
+	has been booked by the following teams (2):
+	Team [ id=9, password=123, budget=$178.00 ]
+	Team [ id=6, password=123, budget=$158.10 ]
+
+Flight [ id=15, destination='Detroit, MI', time=19:30, ticketPrice=$120.00, seatsLeft=11 ]
+	has been booked by the following teams (0):
+
+Flight [ id=16, destination='Chicago, IL', time=19:30, ticketPrice=$125.00, seatsLeft=6 ]
+	has been booked by the following teams (0):
+
+Flight [ id=17, destination='New York City, NY', time=19:30, ticketPrice=$190.00, seatsLeft=2 ]
+	has been booked by the following teams (0):
+
+Flight [ id=18, destination='Rome', time=19:30, ticketPrice=$200.00, seatsLeft=4 ]
+	has been booked by the following teams (0):
+
+Flight [ id=19, destination='Miami, FL', time=21:00, ticketPrice=$45.00, seatsLeft=11 ]
+	has been booked by the following teams (3):
+	Team [ id=4, password=123, budget=$240.00 ]
+	Team [ id=1, password=123, budget=$282.00 ]
+	Team [ id=3, password=123, budget=$166.50 ]
+
+Flight [ id=20, destination='London', time=21:00, ticketPrice=$70.00, seatsLeft=0 ]
+	has been booked by the following teams (0):
+
+Flight [ id=21, destination='Tokyo', time=21:00, ticketPrice=$320.00, seatsLeft=0 ]
+	has been booked by the following teams (0):
+
+

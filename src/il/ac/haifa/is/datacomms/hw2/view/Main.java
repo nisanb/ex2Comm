@@ -29,7 +29,7 @@ public final class Main {
 	public static void main(String[] args)  {
 		initiateLogs();
 		Main.Log("View Server is Up!\n");
-
+Main.Log("Connecting to server: "+IP+":"+PORT);
 		threads = new Thread[11];
 
 		//Initiate teams threads
