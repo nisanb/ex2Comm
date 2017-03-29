@@ -160,8 +160,10 @@ public final class Flight implements Serializable {
 	/**
 	 * @return flight's seats left (not booked).
 	 */
-	public synchronized short getSeatsLeft() {
-		return seatsLeft;
+	public short getSeatsLeft() {
+		synchronized(seatsLock){
+			return seatsLeft;
+		}
 	}
 
 	// -------------------------------------------------------------------
