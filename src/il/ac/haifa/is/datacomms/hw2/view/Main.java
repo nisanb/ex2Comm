@@ -22,23 +22,23 @@ public final class Main {
 	protected static Thread threads[];
 	protected static final String IP = il.ac.haifa.is.datacomms.hw2.model.Consts.LOCALHOST;
 	protected static final int PORT = il.ac.haifa.is.datacomms.hw2.model.Consts.PORT;
-	
+
 	private Main() {
 	}
 
-	public static void main(String[] args)  {
+	public static void main(String[] args) {
 		initiateLogs();
 		Main.Log("View Server is Up!\n");
-Main.Log("Connecting to server: "+IP+":"+PORT);
+		Main.Log("Connecting to server: " + IP + ":" + PORT);
 		threads = new Thread[11];
 
-		//Initiate teams threads
+		// Initiate teams threads
 		for (int i = 0; i < 11; i++) {
 			threads[i] = new Thread(new TeamClient());
 			threads[i].start();
 		}
-		
-		//Join threads to main
+
+		// Join threads to main
 		for (Thread th : threads)
 			if (th != null)
 				try {
@@ -47,28 +47,22 @@ Main.Log("Connecting to server: "+IP+":"+PORT);
 					e.printStackTrace();
 				}
 
-		//Booking ended for all teams
-		
-		
-		
-		
-		
-		//All teams finished booking the flights
+		// Booking ended for all teams
+
+		// All teams finished booking the flights
 		RemoteControl rem = null;
 		try {
-			rem = (RemoteControl) Naming.lookup("//"+IP+":"+PORT+"/RemoteControl");
+			rem = (RemoteControl) Naming.lookup("//" + IP + ":" + PORT + "/RemoteControl");
 		} catch (MalformedURLException | RemoteException | NotBoundException e) {
 			e.printStackTrace();
 		}
 		try {
-			//Get the booking report
+			// Get the booking report
 			Main.Log(rem.getBookingReport(Consts.AIRPORT));
 		} catch (RemoteException e) {
 			e.printStackTrace();
 		}
 
-		
-		
 	}
 
 	/**
@@ -90,7 +84,7 @@ Main.Log("Connecting to server: "+IP+":"+PORT);
 			logFolder = new File("logs_" + dateTime);
 			logFolder.mkdir();
 			prntstrm = new PrintStream(new File(logFolder.getAbsolutePath() + "/MainLog_View.log"));
-			 System.setErr(prntstrm);
+			System.setErr(prntstrm);
 			// System.setOut(prntstrm);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

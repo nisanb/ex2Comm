@@ -14,7 +14,8 @@ public final class Flight implements Serializable {
 	// -------------------------------------------------------------------
 	// -----------------------------fields--------------------------------
 	// -------------------------------------------------------------------
-
+	private transient Object seatsLock;
+	private transient Object teamsLock;
 	/**
 	 * 
 	 */
@@ -49,7 +50,7 @@ public final class Flight implements Serializable {
 	protected Flight(int id) {
 		this.id = id;
 		teamsOnFlight = new ArrayList<Team>();
-		Main.Log("Creating flight ID: "+id);
+		Main.Log("Creating flight ID: " + id);
 	}
 
 	// -------------------------------------------------------------------
@@ -69,36 +70,40 @@ public final class Flight implements Serializable {
 	 * @return true if succeeded, false otherwise.
 	 */
 	protected boolean bookTicketsFor(Team team) {
-		synchronized (this) {
+		synchronized (seatsLock) {
 			// Check if there is space on flight
 			if (this.getSeatsLeft() < 2) {
 				Main.Log("Team " + team.getId() + " does not have tickets left to purchase on flight " + this.getId());
 				return false;
 			}
-			// Check if team already booked this flight
+		}
+		// Check if team already booked this flight
+		synchronized (teamsLock) {
 			if (teamsOnFlight.contains(team)) {
 				Main.Log("Team " + team.getId() + " already booked a ticket for flight #" + this.getId());
 				return false;
 			}
-
-			if (!team.canAfford(getTicketPrice().multiply(new BigDecimal(2.0)))) {
-				Main.Log("Team " + team.getId() + " with budget " + team.getBudget()
-						+ " cannot afford tickets for flight " + this.getId());
-				return false;
-			}
-			BigDecimal totalCost = getTicketPrice().multiply(new BigDecimal(2));
-			Main.Log("Spending $" + totalCost + " for team " + team.getId());
-
-			team.spendMoney(getTicketPrice().multiply(new BigDecimal(2)));
-
-			teamsOnFlight.add(team);
-
-			seatsLeft -= 2;
-			Main.Log("Adding team " + team.getId() + " to flight #" + this.getId() + " book. new size: "
-					+ teamsOnFlight.size());
-			Main.Log("Team " + team.getId() + " successfully booked flight #" + this.getId());
-			return true;
 		}
+		if (!team.canAfford(getTicketPrice().multiply(new BigDecimal(2.0)))) {
+			Main.Log("Team " + team.getId() + " with budget " + team.getBudget() + " cannot afford tickets for flight "
+					+ this.getId());
+			return false;
+		}
+		BigDecimal totalCost = getTicketPrice().multiply(new BigDecimal(2));
+		Main.Log("Spending $" + totalCost + " for team " + team.getId());
+
+		team.spendMoney(getTicketPrice().multiply(new BigDecimal(2)));
+
+		synchronized (teamsLock) {
+			teamsOnFlight.add(team);
+		}
+		synchronized (seatsLock) {
+			setSeatsLeft(seatsLeft -= 2);
+		}
+		Main.Log("Adding team " + team.getId() + " to flight #" + this.getId() + " book. new size: "
+				+ teamsOnFlight.size());
+		Main.Log("Team " + team.getId() + " successfully booked flight #" + this.getId());
+		return true;
 	}
 
 	/**
@@ -169,7 +174,9 @@ public final class Flight implements Serializable {
 	 * @return reference to this instance.
 	 */
 	protected Flight setSeatsLeft(short seats) {
-		seatsLeft = seats;
+		synchronized (seatsLock) {
+			seatsLeft = seats;
+		}
 		return this;
 	}
 
@@ -219,9 +226,10 @@ public final class Flight implements Serializable {
 				(destination != null) ? destination : "N/A", (time != null) ? time : "N/A",
 				(ticketPrice != null) ? NumberFormat.getCurrencyInstance().format(ticketPrice) : "N/A", seatsLeft);
 	}
+
 	@Override
 	public boolean equals(Object obj) {
-		if(((Flight)obj).getId() == this.getId())
+		if (((Flight) obj).getId() == this.getId())
 			return true;
 		return false;
 	}
