@@ -14,8 +14,8 @@ public final class Flight implements Serializable {
 	// -------------------------------------------------------------------
 	// -----------------------------fields--------------------------------
 	// -------------------------------------------------------------------
-	private transient Object seatsLock;
-	private transient Object teamsLock;
+	private final transient Object seatsLock = new Object();
+	private final transient Object teamsLock = new Object();
 	/**
 	 * 
 	 */
@@ -161,9 +161,7 @@ public final class Flight implements Serializable {
 	 * @return flight's seats left (not booked).
 	 */
 	public short getSeatsLeft() {
-		synchronized(seatsLock){
-			return seatsLeft;
-		}
+			return this.seatsLeft;
 	}
 
 	// -------------------------------------------------------------------
@@ -176,6 +174,7 @@ public final class Flight implements Serializable {
 	 * @return reference to this instance.
 	 */
 	protected Flight setSeatsLeft(short seats) {
+		System.out.println("Trying to set seats");
 		synchronized (seatsLock) {
 			seatsLeft = seats;
 		}

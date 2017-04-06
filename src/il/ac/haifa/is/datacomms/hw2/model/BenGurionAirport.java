@@ -115,8 +115,11 @@ public final class BenGurionAirport extends UnicastRemoteObject implements Airpo
 		Main.Log("Aquiring flight list to "+destination+" from starting time: "+startTime);
 		ArrayList<Flight> toReturn = new ArrayList<Flight>();
 		for(Flight f : flights){
-			if(f.getDestination().equals(destination) && startTime.isBefore(f.getTime()))
+			if(f.getDestination().equals(destination) && startTime.isBefore(f.getTime())){
 				toReturn.add(f);
+				System.err.println("Adding flight #"+f.getId()+" with "+f.getSeatsLeft()+" seats.");
+			}
+				
 		}
 		Main.Log("Found "+toReturn.size()+" flights.");
 		return toReturn;
