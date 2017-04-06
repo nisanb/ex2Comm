@@ -13,4 +13,13 @@ public interface AmazingRace extends Remote{
 	 * @return requested team. or null if doesn't exist or wrong password.
 	 */
 	public Team getTeam(int teamId, String password) throws RemoteException;
+	
+	/**
+	 * The following method will return an Airport if found in the database
+	 * @param airportName
+	 * @return
+	 * @throws RemoteException
+	 */
+	public Airport getAirport(String airportName) throws RemoteException;
+	
 }

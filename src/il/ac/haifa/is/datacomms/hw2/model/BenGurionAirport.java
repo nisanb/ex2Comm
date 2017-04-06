@@ -38,6 +38,7 @@ public final class BenGurionAirport extends UnicastRemoteObject implements Airpo
 	/**flights taking off from this airport.*/
 	private volatile ArrayList<Flight> flights;
 	
+	private String airportName;
 	//-------------------------------------------------------------------
 	//-------------------------constructors------------------------------
 	//-------------------------------------------------------------------
@@ -46,6 +47,7 @@ public final class BenGurionAirport extends UnicastRemoteObject implements Airpo
 	 * private c'tor for singleton use.
 	 */
 	private BenGurionAirport() throws RemoteException {
+		this.airportName = "Ben Gurion";
 		initFlights();
 	}
 	
@@ -133,6 +135,22 @@ public final class BenGurionAirport extends UnicastRemoteObject implements Airpo
 		return getBool;
 
 	}
+
+	/**
+	 * @return the airportName
+	 */
+	public String getAirportName() throws RemoteException{
+		return airportName;
+	}
+
+	/**
+	 * @param airportName the airportName to set
+	 */
+	public void setAirportName(String airportName) {
+		this.airportName = airportName;
+	}
+	
+	
 	
 	//-------------------------------------------------------------------
 	//----------------------------getters--------------------------------

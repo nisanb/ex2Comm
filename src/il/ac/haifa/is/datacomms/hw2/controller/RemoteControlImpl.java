@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.SpinnerNumberModel;
 
@@ -14,6 +15,7 @@ import il.ac.haifa.is.datacomms.hw2.model.Airport;
 import il.ac.haifa.is.datacomms.hw2.model.AmazingRace;
 import il.ac.haifa.is.datacomms.hw2.model.AmazingRaceImpl;
 import il.ac.haifa.is.datacomms.hw2.model.BenGurionAirport;
+import il.ac.haifa.is.datacomms.hw2.model.Consts;
 import il.ac.haifa.is.datacomms.hw2.model.Flight;
 import il.ac.haifa.is.datacomms.hw2.model.Team;
 
@@ -28,7 +30,6 @@ public final class RemoteControlImpl extends UnicastRemoteObject implements Remo
 
 	/** singleton instance. */
 	private static volatile RemoteControlImpl instance;
-	
 
 	// -------------------------------------------------------------------
 	// -------------------------constructors------------------------------
@@ -55,13 +56,15 @@ public final class RemoteControlImpl extends UnicastRemoteObject implements Remo
 	@Override
 	public ArrayList<Flight> getFlightsTo(String destination, String from, LocalTime startTime) throws RemoteException {
 		Main.Log("Getting flight list from " + from + " to " + destination + " from starting time: " + startTime);
-		Airport bgAirport = null;
-		// Aquire BGAirport Instance
-		try {
-			bgAirport = (Airport) Naming.lookup("//"+Main.IP+":"+Main.PORT+"/BGAirport");
-			return bgAirport.getFlightsTo(destination, startTime);
 
-		} catch (MalformedURLException | NotBoundException e) {
+	
+		try {
+			AmazingRace amz = (AmazingRace) Naming.lookup("//"+Consts.LOCALHOST+":"+Consts.PORT+"/AmazingRace");
+			Airport air = amz.getAirport(from);
+
+			return air.getFlightsTo(destination, startTime);
+
+		} catch (MalformedURLException | NotBoundException | NullPointerException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

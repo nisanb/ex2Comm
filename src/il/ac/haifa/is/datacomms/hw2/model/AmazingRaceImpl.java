@@ -32,6 +32,9 @@ public final class AmazingRaceImpl extends UnicastRemoteObject implements Amazin
 	/** teams participating in the race. */
 	private ArrayList<Team> teams;
 
+	/** airports in the race - only 1 now **/
+	private ArrayList<Airport> airports;
+
 	// -------------------------------------------------------------------
 	// -------------------------constructors------------------------------
 	// -------------------------------------------------------------------
@@ -41,6 +44,8 @@ public final class AmazingRaceImpl extends UnicastRemoteObject implements Amazin
 	 */
 	private AmazingRaceImpl() throws RemoteException {
 		initTeams();
+		airports = new ArrayList<Airport>();
+		airports.add(BenGurionAirport.getInstance());
 	}
 
 	/**
@@ -111,6 +116,42 @@ public final class AmazingRaceImpl extends UnicastRemoteObject implements Amazin
 		else
 			return null;
 
+	}
+
+	/**
+	 * The following method will return an Airport if found in the database
+	 * 
+	 * @param airportName
+	 * @return
+	 * @throws RemoteException
+	 */
+	public Airport getAirport(String airportName) throws RemoteException {
+		Airport toReturn = null;
+		Main.Log("Looking for airport " + airportName);
+		for (Airport a : getAirports()) {
+			if (a.getAirportName().equals(airportName)) {
+				Main.Log("Found airport " + airportName);
+				toReturn = a;
+				break;
+			}
+		}
+		
+		return toReturn;
+	}
+
+	/**
+	 * @return the airports
+	 */
+	public ArrayList<Airport> getAirports() {
+		return airports;
+	}
+
+	/**
+	 * @param airports
+	 *            the airports to set
+	 */
+	public void setAirports(ArrayList<Airport> airports) {
+		this.airports = airports;
 	}
 
 	// -------------------------------------------------------------------

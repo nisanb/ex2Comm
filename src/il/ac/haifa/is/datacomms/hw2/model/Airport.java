@@ -28,4 +28,7 @@ public interface Airport extends Remote{
 	 * @return a string with flights & teams who were able to book tickets for them.
 	 */
 	public String getBookingReport() throws RemoteException;
+	
+	public String getAirportName() throws RemoteException;
+	
 }
