@@ -9,13 +9,13 @@ import java.util.ArrayList;
 /**
  * Class representation of a Flight.
  */
-public final class Flight implements Serializable {
+public final class Flight implements Serializable{
 
 	// -------------------------------------------------------------------
 	// -----------------------------fields--------------------------------
 	// -------------------------------------------------------------------
-	private transient Object seatsLock;
-	private transient Object teamsLock;
+	private final transient Object seatsLock = new Object();
+	private final transient Object teamsLock = new Object();
 	/**
 	 * 
 	 */
@@ -50,6 +50,9 @@ public final class Flight implements Serializable {
 	protected Flight(int id) {
 		this.id = id;
 		teamsOnFlight = new ArrayList<Team>();
+		
+		//Initiate de-serielaized lock objects
+		Main.Log("Initiating locks for flight #"+id);
 		Main.Log("Creating flight ID: " + id);
 	}
 
@@ -113,6 +116,8 @@ public final class Flight implements Serializable {
 	protected String getBookingReport() {
 		String out = "";
 
+		if (this.teamsOnFlight.size() == 0)
+			return out;
 		out += this + "\thas been booked by the following teams (" + teamsOnFlight.size() + "):\n";
 		for (Team team : teamsOnFlight)
 			out += "\t" + team;
@@ -161,9 +166,10 @@ public final class Flight implements Serializable {
 	 * @return flight's seats left (not booked).
 	 */
 	public short getSeatsLeft() {
-		synchronized(seatsLock){
+		Main.Log("Trying to aquire seats lock");
+//		synchronized (seatsLock) {
 			return seatsLeft;
-		}
+//		}
 	}
 
 	// -------------------------------------------------------------------
@@ -176,7 +182,7 @@ public final class Flight implements Serializable {
 	 * @return reference to this instance.
 	 */
 	protected Flight setSeatsLeft(short seats) {
-		synchronized (seatsLock) {
+		synchronized (this.seatsLock) {
 			seatsLeft = seats;
 		}
 		return this;

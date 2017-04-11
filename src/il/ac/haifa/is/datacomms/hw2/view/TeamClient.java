@@ -83,26 +83,33 @@ public final class TeamClient implements Runnable {
 			Main.Log("Team " + teamId + " obtained " + flightList.size() + " flights possible.");
 
 			for (Flight f : flightList) {
+				Main.Log("Team "+teamId+" is looking at flight #"+f.getId());
 				if (hold) {
 					Main.Log("Team " + teamId + " is Waiting 3 seconds before attempting to book another flight..");
 					Thread.sleep(3000);
 				}
 				hold = true;
 				// Check if destination is relevant
-				if (!f.getDestination().equals(Consts.DESTINATION))
+				if (!f.getDestination().equals(Consts.DESTINATION)){
+					Main.Log("Team "+teamId+" is skipping flight #"+f.getId()+" because destination is not relevant (Need: "+Consts.DESTINATION+" Flight Destination: "+f.getDestination());
 					continue;
+				}
+					
 
 				// Check if time relevant
-				if (f.getTime().isBefore(LocalTime.of(15, 0)))
+				if (f.getTime().isBefore(Consts.NOW)){
+					Main.Log("Team "+teamId+" is skipping flight #"+f.getId()+" because flight is not time relevant (Current: "+Consts.NOW+" Flight Time: "+f.getTime());
 					continue;
+				}
 
 				// Check if flight has seats left
 				if (f.getSeatsLeft() < 2) {
-					Main.Log("Flight #" + f.getId() + " has no available sits for team " + teamId);
+					Main.Log("Team "+teamId+" is skipping flight #" + f.getId() + " because it is full");
 					continue;
 				}
+				
 				synchronized (rem) {
-
+					Main.Log("Team "+teamId+" is sending a booking request for flight #"+f.getId()+" to the server");
 					// Attempt to book the flight at the remote server
 					if (rem.bookFlight(Consts.AIRPORT, f, (Team) team)) {
 						Main.Log("Successfully booked flight #" + f.getId() + " for team: " + teamId);

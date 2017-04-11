@@ -1,9 +1,9 @@
 @echo off
-Activating Model Server
+echo Activating Model Server
 start _model.bat
 timeout 2
-Activating Controller Server
+echo Activating Controller Server
 start _controller.bat
 timeout 2
-Activating View Server
+echo Activating View Server
 start _view.bat

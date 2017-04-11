@@ -45,7 +45,7 @@ public final class Main {
 	 * @param str
 	 */
 	public static void Log(String str) {
-		prntstrm.println(LocalTime.now() + " - " + str);
+		//prntstrm.println(LocalTime.now() + " - " + str);
 		System.out.println(LocalTime.now() + " - " + str);
 	}
 
